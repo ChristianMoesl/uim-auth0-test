@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useAuth0 } from '../lib/auth0'
 import ConsentsList from '../components/ConsentsList'
+import PingList from '../components/PingList'
 
 const Home: NextPage = () => {
   const { state, login, logout } = useAuth0()
@@ -65,9 +66,14 @@ const Home: NextPage = () => {
           )}
         </div>
         {state.authenticationState === 'loggedIn' && (
-          <div>
-            <ConsentsList />
-          </div>
+          <>
+            <div className="mb-8">
+              <ConsentsList />
+            </div>
+            <div>
+              <PingList />
+            </div>
+          </>
         )}
       </main>
     </div>

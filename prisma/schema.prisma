@@ -8,7 +8,14 @@ generator client {
 }
 
 model Consent {
-    userId String @id @map("_id")
-    consentGiven Boolean
-    timestamp String
+    userId          String @id @map("_id")
+    consentGiven    Boolean
+    timestamp       String
+}
+
+model Ping {
+    id          String @id @default(auto()) @map("_id") @db.ObjectId
+    timestamp   String
+    subject     String
+    userAgent   String
 }
